@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Trabalho de Física III - 3º Trimestre</title>
+    <link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
+    <script src="libs/js/jquery-3.4.1.js"></script>
+
+  </head>
+  <body>
+
+    <script>
+    $(document).ready(function(){
+      //alert("oi");
+
+      $("#btnA").click(function(){
+        $(".alternativa_b").hide();
+        $(".alternativa_c").hide();
+        $(".alternativa_a").fadeIn();
+      });
+      $("#fmnula").click(function(){
+        $("#valor_fm").hide();
+        $("#valor_p").fadeIn();
+        $("#infovalor_p").fadeIn();
+      });
+      $("#fm8").click(function(){
+        $("#fm8").hide();
+        $("#fmnula").hide();
+        $("#respostaaerrada").fadeIn();
+      });
+      $("#responderadenovo").click(function(){
+        $("#respostaaerrada").hide();
+        $("#fm8").fadeIn();
+        $("#fmnula").fadeIn();
+      });
+      $("#total-a").click(function() {
+        var m = $("#m").val();
+        var g = $("#g").val();
+        $("#P").val((m*g) + 'N')
+        alert('GABARITO:\n Com força magnética nula, a indicação do dinamômetro é o peso da barra. Calcula-se:\n P = m . g = 200.10^-3 . 10 \n P = 2N \nSUA RESPOSTA: \n P = ' + (m*g) + 'N');
+      });
+
+      $("#btnB").click(function() {
+        $(".alternativa_a").hide();
+        $(".alternativa_c").hide();
+        $(".alternativa_b").fadeIn();
+      });
+      $("#ab").click(function(){
+        $("#sentido_i").hide();
+        $("#valor_i").fadeIn();
+        $("#infovalor_i").fadeIn();
+      });
+      $("#ba").click(function(){
+        $("#ab").hide();
+        $("#ba").hide();
+        $("#respostaberrada").fadeIn();
+      });
+      $("#responderbdenovo").click(function(){
+        $("#respostaberrada").hide();
+        $("#ab").fadeIn();
+        $("#ba").fadeIn();
+      });
+      $("#total-b").click(function() {
+        var m = $("#m_b").val();
+        var g = $("#g_b").val();
+        var B = $("#B").val();
+        var l = $("#l").val();
+        var p = m*g;
+        var i = p/(B*l);
+        $("#i").val(i + 'A')
+        alert('GABARITO: \n Fm = B . i . l \n P = m . g \n Fm = P \n B . i . l = m . g \n i = m . g / B . l = 2 / 1 . 2.10^-1 = 10A de A para B\nSUA RESPOSTA: \n i = ' + i + 'A');
+      });
+
+      $("#btnC").click(function() {
+        $(".alternativa_a").hide();
+        $(".alternativa_b").hide();
+        $(".alternativa_c").fadeIn();
+      });
+      $("#total-c").click(function() {
+        var R = $("#R").val();
+        var i = $("#I").val();
+        $("#U").val((R*i) + 'V')
+        alert('GABARITO: \n U = R . i = 6 . 10 \n U = 60V \nSUA RESPOSTA: \n U = ' + (R*i) + 'V');
+      });
+
+    });
+  </script>
+
+  <div class="container pt-3">
+    <h3><b> 895 (Unicamp-SP) -</b> Um fio condutor rígido de 200 g e 20 cm de comprimento é ligado ao restante do circuito através de contatos deslizantes sem atrito, como mostra a figura a seguir. O plano da figura é vertical. Inicialmente a chave está aberta. O fio condutor é preso a um dinamômetro e se encontra em uma região com campo magnético de 1,0 T, entrando perpendicularmente no plano da figura.</h3>
+    <img src="libs/figura.png" alt="figura" width=300 height=300 class="mx-auto d-block"> <hr>
+
+      <div class="row justify-content-center pb-2">
+        <button type="button" class="btn btn-dark mr-1" id="btnA">Alternativa a)</button>
+        <button type="button" class="btn btn-dark mx-1" id="btnB">Alternativa b)</button>
+        <button type="button" class="btn btn-dark ml-1" id="btnC">Alternativa c)</button>
+      </div>
+
+      <div class="alternativa_a" style="display: none">
+        <h4>a) Calcule a força medida pelo dinamômetro com a chave aberta, estando o fio em equilíbrio.</h4>
+        <p id="infovalor_p" style="display: none">Para a resolução, considere g = 10 m/s² e informe 'm' em Kg.</p>
+
+        <form method="get" id="alternativa_a">
+          <div id="valor_fm">
+            <p> Com a chave aberta a corrente no condutor é nula, logo a força magnética é: </p>
+            <div class="form-row justify-content-center mt-3">
+              <button type="button" class="btn btn-secondary mr-1" name="fm8" id="fm8">Fm = 8N</button>
+              <button type="button" class="btn btn-secondary ml-1" name="fmnula" id="fmnula">Fm é nula</button>
+              <p id="respostaaerrada" style="display: none"><b>Resposta errada, tente novamente clicando <a href="#" class="text-primary" id="responderadenovo">aqui</a>.</b></p>
+            </div>
+          </div>
+          <div class="form-row mt-4" id="valor_p" style="display: none">
+            <div class="form-group col-sm-3">
+
+            </div>
+            <div class="form-group col-sm-1">
+              <h4 class="text-right">P=</h4>
+            </div>
+            <div class="form-group col-sm-1">
+              <input type="text" name="m" value="" class="form-control" placeholder="m ." id="m" required>
+            </div>
+            <div class="form-group col-sm-1">
+              <input type="text" name="g" value="" class="form-control" placeholder="g" id="g" required>
+            </div>
+            <div class="form-group col-sm-1">
+              <h4 class="text-center"> = </h4>
+            </div>
+            <div class="form-group col-sm-1">
+              <input type="text" name="P" value="" class="form-control" id="P" disabled>
+            </div>
+            <div class="form-group col-sm-1">
+
+            </div>
+            <div class="form-group col-sm-1">
+              <button type="button" class="mt-3 btn btn-primary" id="total-a">Calcular</button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+
+      <div class="alternativa_b" style="display: none">
+        <h4>b) Determine a direção e a intensidade da corrente elétrica no circuito após o fechamento da chave, sabendo-se que o dinamômetro passa a indicar leitura zero.</h4>
+        <p id="infovalor_i" style="display: none">Para a resolução, considere g = 10 m/s² e informe 'm' em Kg e 'l' em metros.</p>
+
+        <form method="get" id="alternativa_b">
+          <div id="sentido_i">
+            <p class="mb-1 pb-0"> Para que o dinamômetro indique zero, a força magnética deve ter mesmo módulo, mesma direção e sentido
+              contrário do peso da barra. Para tanto, o sentido da corrente é de:</p>
+            <div class="form-row justify-content-center">
+              <button type="button" class="btn btn-secondary mr-1" name="ab" id="ab">A para B</button>
+              <button type="button" class="btn btn-secondary ml-1" name="ba" id="ba">B para A</button>
+              <p id="respostaberrada" style="display: none"><b>Resposta errada, tente novamente clicando <a href="#" class="text-primary" id="responderbdenovo">aqui</a>.</b></p>
+            </div>
+          </div>
+          <div class="form-row mt-3" id="valor_i" style="display: none">
+            <div class="form-group col-sm-2">
+
+            </div>
+            <div class="form-group col-sm-1">
+              <h4 class="text-right">i=</h4>
+            </div>
+            <div class="form-group col-sm-1">
+              <input type="text" name="m_b" value="" class="form-control" placeholder="m ." id="m_b" required>
+            </div>
+            <div class="form-group col-sm-1">
+              <input type="text" name="g_b" value="" class="form-control" placeholder="g" id="g_b" required>
+            </div>
+            <div class="form-group col-sm-1">
+              <h4 class="text-center"> / </h4>
+            </div>
+            <div class="form-group col-sm-1">
+              <input type="text" name="B" value="" class="form-control" placeholder="B ." id="B" required>
+            </div>
+            <div class="form-group col-sm-1">
+              <input type="text" name="l" value="" class="form-control" placeholder="l" id="l" required>
+            </div>
+            <div class="form-group col-sm-1">
+              <h4 class="text-center"> = </h4>
+            </div>
+            <div class="form-group col-sm-1">
+              <input type="text" name="i" value="" class="form-control" id="i" disabled>
+            </div>
+            <div class="form-group col-sm-1">
+
+            </div>
+            <div class="form-group col-sm-1">
+              <button type="button" class="mt-3 btn btn-primary" id="total-b">Calcular</button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+
+      <div class="alternativa_c" style="display: none">
+        <h4>c) Calcule a tensão da bateria sabendo-se que a resistência total do circuito é de 6,0 Ω.</h4>
+        <p>Para a resolução, considere i = 10A.</p>
+
+        <form method="get" id="alternativa_c">
+          <div class="form-row mt-4">
+            <div class="form-group col-sm-3">
+
+            </div>
+            <div class="form-group col-sm-1">
+              <h4 class="text-right">U=</h4>
+            </div>
+            <div class="form-group col-sm-1">
+              <input type="text" name="R" value="" class="form-control" placeholder="R ." id="R" required>
+            </div>
+            <div class="form-group col-sm-1">
+              <input type="text" name="I" value="" class="form-control" placeholder="i" id="I" required>
+            </div>
+            <div class="form-group col-sm-1">
+              <h4 class="text-center"> = </h4>
+            </div>
+            <div class="form-group col-sm-1">
+              <input type="text" name="U" value="" class="form-control" id="U" disabled>
+            </div>
+            <div class="form-group col-sm-1">
+
+            </div>
+            <div class="form-group col-sm-1">
+              <button type="button" class="mt-3 btn btn-primary" id="total-c">Calcular</button>
+            </div>
+
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  </body>
+</html>
